@@ -4,7 +4,7 @@
   "description": "A Cafe and Bakery Shopify Theme",
   "main": "index.js",
   "scripts": {
-    "build:tailwinds": "tailwindcss -i ./src/tailwind.css -o ./assets/application.css"
+    "build:tailwinds": "tailwindcss -i ./src/tailwind.css -o ./assets/application.css --watch"
   },
   "author": "Linssen",
   "license": "ISC",

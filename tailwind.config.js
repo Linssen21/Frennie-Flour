@@ -1,11 +1,8 @@
 module.exports = {
-    purge: [],
-    darkMode: false, // or 'media' or 'class'
+    content: ['./templates/**/*.{html,liquid,js}'],
     theme: {
       extend: {
-        height: {
-          '94': '22rem'
-        }
+     
       },
     },
     variants: {

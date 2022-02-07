@@ -1,0 +1,93 @@
+<header class="bg-white relative shadow-header">
+    <div class="max-w-7xl mx-auto px-2 py-2 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between">
+        
+    <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+        <!-- Logo -->
+        <div class="flex-shrink-0 flex items-center">
+        <a href="{{ routes.root_url }}">
+            {% if section.settings.logo != blank %}
+
+                {%- assign image_size = section.settings.logo_width | append: 'x' -%}
+
+                <img 
+                srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x" 
+                src="{{ section.settings.logo | img_url: image_size }}" 
+                loading="lazy"  
+                width="{{ section.settings.logo.width }}"
+                height="{{ section.settings.logo.height }}"  
+                alt="{{ section.settings.logo.alt | default: shop.name | escape }}"
+                class="max-h-20 object-contain w-auto"
+                />
+            {% else %}
+                <span class="text-2xl font-bold">{{ shop.name }}</span>
+            {% endif %}
+        </a>
+        </div>
+        <!-- End Logo -->
+    </div>
+
+    <!-- Menu -->
+    {% if section.settings.menu != blank %}
+    <nav class="hidden sm:block sm:ml-6">
+        <ul class="flex space-x-4 list-none" role="list">
+            {% for link in section.settings.menu.links %}
+                <li class="p-4 relative group">
+                    <!-- (link.links) Submenus -->
+                    {% if link.links != blank %}
+                    <a class="relative p-4 uppercase group-hover:text-primary group-hover:after:content-[''] group-hover:after:border-b group-hover:after:border-black group-hover:after:absolute group-hover:after:bottom-0 group-hover:after:block group-hover:after:border-colo group-hover:after:h-1px group-hover:after:z-10 group-hover:after:w-full" href="{{ link.url }}">{{ link.title | escape }}</a>
+                    <ul class="bg-white py-3 absolute w-full hidden transform lg:translate-y-3 shadow-sub-menu group-hover:block">
+                       {% for childlink in link.links %}
+                           <li>
+                            <a class="px-4 py-1" href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+                           </li>
+                       {% endfor %}
+                    </ul>
+                    <!-- No Submenus -->
+                    {% else %}
+                        <a class="uppercase" href="{{ link.url }}">{{ link.title | escape }}</a>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        
+        </ul>
+    </nav>
+    
+
+    
+    {% endif %}
+    <!-- End Mnu -->
+    <!-- Nav -->
+
+        </div>
+    </div>
+</header>
+
+{% schema %}
+{
+   "name": "Header",
+  "settings": [
+      {
+         "type": "image_picker",
+         "id": "logo",
+         "label": "Insert your store logo here"
+      },
+      {
+        "type": "range",
+        "id": "logo_width",
+        "min": 50,
+        "max": 250,
+        "step": 10,
+        "default": 100,
+        "unit": "x",
+        "label": "Set Logo"
+      },
+      {
+        "type": "link_list",
+        "id": "menu",
+        "default": "main-menu",
+        "label": "Heading Navigation Menu"
+      }
+  ]
+}
+{% endschema %}

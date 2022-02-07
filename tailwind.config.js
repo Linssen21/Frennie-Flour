@@ -18,7 +18,7 @@ module.exports = {
         
       },
       fontFamily: {
-        Josefin: ['"Josefin Sans"', 'sans-serif']
+        Josefin: ['Josefin Sans', 'sans-serif']
       }
     },
     variants: {

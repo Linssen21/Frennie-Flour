@@ -1,7 +1,7 @@
 @font-face {
   font-family: Josefin;
 
-  src: url('/assets/fonts/JosefinSans-VariableFont_wght.ttf') format('ttf');
+  src: url('/assets/JosefinSans-VariableFont_wght.ttf') format('ttf');
 
   font-style: normal;
 
@@ -11,7 +11,7 @@
 @font-face {
   font-family: Josefin;
 
-  src: url('/assets/fonts/JosefinSans-Italic-VariableFont_wght.ttf') format('ttf');
+  src: url('/assets/JosefinSans-Italic-VariableFont_wght.ttf') format('ttf');
 
   font-style: italic;
 

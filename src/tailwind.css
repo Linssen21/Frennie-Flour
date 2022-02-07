@@ -2,14 +2,14 @@
     font-family: Josefin;
     src: url('/assets/JosefinSans-VariableFont_wght.ttf') format('ttf');
     font-style: normal;
-    font-weight: 100 200 300 400 500 600 700
+    font-weight: 100 200 300 400 500 600 700;
 }
 
 @font-face {
     font-family: Josefin;
     src: url('/assets/JosefinSans-Italic-VariableFont_wght.ttf') format('ttf');
     font-style: italic;
-    font-weight: 100 200 300 400 500 600 700
+    font-weight: 100 200 300 400 500 600 700;
 }
 
 @tailwind base;

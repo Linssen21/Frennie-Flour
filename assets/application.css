@@ -1,7 +1,7 @@
 @font-face {
   font-family: Josefin;
 
-  src: url('/assets/JosefinSans-VariableFont_wght.ttf') format('ttf');
+  src: url('JosefinSans-VariableFont_wght.ttf') format('ttf');
 
   font-style: normal;
 
@@ -11,7 +11,7 @@
 @font-face {
   font-family: Josefin;
 
-  src: url('/assets/JosefinSans-Italic-VariableFont_wght.ttf') format('ttf');
+  src: url('JosefinSans-Italic-VariableFont_wght.ttf') format('ttf');
 
   font-style: italic;
 
@@ -521,10 +521,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   display: none;
 }
 
-.h-4 {
-  height: 1rem;
-}
-
 .max-h-20 {
   max-height: 5rem;
 }
@@ -533,16 +529,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: auto;
 }
 
-.w-4 {
-  width: 1rem;
+.w-14px {
+  width: 0.875rem;
 }
 
 .w-full {
   width: 100%;
-}
-
-.w-14px {
-  width: 0.875rem;
 }
 
 .max-w-7xl {
@@ -672,14 +664,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   transition-duration: 150ms;
 }
 
-.duration-100 {
-  transition-duration: 100ms;
-}
-
-.duration-500 {
-  transition-duration: 500ms;
-}
-
 .duration-300 {
   transition-duration: 300ms;
 }
@@ -690,10 +674,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .group:hover .group-hover\:visible {
   visibility: visible;
-}
-
-.group:hover .group-hover\:block {
-  display: block;
 }
 
 .group:hover .group-hover\:text-primary {
@@ -733,12 +713,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .group:hover .group-hover\:after\:border-b::after {
   content: var(--tw-content);
   border-bottom-width: 1px;
-}
-
-.group:hover .group-hover\:after\:border-black::after {
-  content: var(--tw-content);
-  --tw-border-opacity: 1;
-  border-color: rgb(0 0 0 / var(--tw-border-opacity));
 }
 
 .group:hover .group-hover\:after\:border-primary::after {

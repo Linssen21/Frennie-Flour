@@ -15,10 +15,13 @@ module.exports = {
           primary: '#ff167d',
           secondary: colors.black,
         },
+        width: {
+          '14px': '0.875rem',
+        }
         
       },
       fontFamily: {
-        Josefin: ['Josefin Sans', 'sans-serif']
+        sans: ['Josefin Sans', 'sans-serif']
       }
     },
     variants: {

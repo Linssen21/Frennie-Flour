@@ -29,14 +29,17 @@
 
     <!-- Menu -->
     {% if section.settings.menu != blank %}
-    <nav class="hidden sm:block sm:ml-6">
-        <ul class="flex space-x-4 list-none" role="list">
+    <nav class="hidden sm:block sm:ml-6 transition-all ease-in-out duration-300">
+        <ul class="flex space-x-4 list-none text-sm items-center" role="list">
             {% for link in section.settings.menu.links %}
                 <li class="p-4 relative group">
                     <!-- (link.links) Submenus -->
                     {% if link.links != blank %}
-                    <a class="relative p-4 uppercase group-hover:text-primary group-hover:after:content-[''] group-hover:after:border-b group-hover:after:border-black group-hover:after:absolute group-hover:after:bottom-0 group-hover:after:block group-hover:after:border-colo group-hover:after:h-1px group-hover:after:z-10 group-hover:after:w-full" href="{{ link.url }}">{{ link.title | escape }}</a>
-                    <ul class="bg-white py-3 absolute w-full hidden transform lg:translate-y-3 shadow-sub-menu group-hover:block">
+                    <a class="relative p-4 uppercase group-hover:text-primary group-hover:after:content-[''] group-hover:after:border-b group-hover:after:border-primary group-hover:after:absolute group-hover:after:bottom-0 group-hover:after:block group-hover:after:border-colo group-hover:after:h-1px group-hover:after:z-10 group-hover:after:w-full" href="{{ link.url }}">{{ link.title | escape }}
+                    <span class="inline-flex justify-center items-center w-14px"> <!-- render get from snippets folder -->
+                    {% render 'icon-dropdown' %}</span>
+                    </a>
+                    <ul class=" bg-white py-3 absolute w-full invisible opacity-0 transform lg:translate-y-3 shadow-sub-menu group-hover:visible group-hover:opacity-100">
                        {% for childlink in link.links %}
                            <li>
                             <a class="px-4 py-1" href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
@@ -52,9 +55,6 @@
         
         </ul>
     </nav>
-    
-
-    
     {% endif %}
     <!-- End Mnu -->
     <!-- Nav -->

@@ -17,15 +17,18 @@ module.exports = {
         },
         width: {
           '14px': '0.875rem',
-        }
-        
+        },
+        fontSize: {
+          tiny: '0.5625rem'
+        },
+        lineHeight: {
+          'search-bar': '1.8',
+        },
       },
       fontFamily: {
         sans: ['Josefin Sans', 'sans-serif']
       },
-      lineHeight: {
-        'search-bar': '1.8',
-      },
+
     },
     variants: {
       extend: {

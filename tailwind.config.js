@@ -22,7 +22,10 @@ module.exports = {
       },
       fontFamily: {
         sans: ['Josefin Sans', 'sans-serif']
-      }
+      },
+      lineHeight: {
+        'search-bar': '1.8',
+      },
     },
     variants: {
       extend: {

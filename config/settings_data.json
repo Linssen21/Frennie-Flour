@@ -1,5 +1,8 @@
 {
   "current": {
+    "social_twitter_link": "https:\/\/frennie-flour.myshopify.com\/twitter",
+    "social_facebook_link": "https:\/\/frennie-flour.myshopify.com\/facebook",
+    "social_pinterest_link": "https:\/\/frennie-flour.myshopify.com\/pinterest",
     "sections": {
       "header": {
         "type": "header",

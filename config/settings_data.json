@@ -3,7 +3,7 @@
     "social_twitter_link": "https:\/\/frennie-flour.myshopify.com\/twitter",
     "social_facebook_link": "https:\/\/frennie-flour.myshopify.com\/facebook",
     "social_pinterest_link": "https:\/\/frennie-flour.myshopify.com\/pinterest",
-    "favicon": "shopify:\/\/shop_images\/frennie-flour-logo.png",
+    "favicon": "shopify:\/\/shop_images\/favicon.png",
     "sections": {
       "header": {
         "type": "header",

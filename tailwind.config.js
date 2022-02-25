@@ -17,7 +17,6 @@ module.exports = {
         },
         width: {
           '14px': '0.875rem',
-         
         },
         maxWidth: {
           'page-width': 'var(--page-width)'

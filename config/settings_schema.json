@@ -80,5 +80,20 @@
         "info": "Will be scaled down to 32 x 32px"
       }
     ]
+  },
+  {
+    "name": "Layout",
+    "settings": [
+      {
+        "type": "range",
+        "id": "page_width",
+        "min": 1200,
+        "max": 1600,
+        "step": 1,
+        "default": 1200,
+        "unit": "px",
+        "label": "Maximum width"
+      }
+    ]
   }
 ]

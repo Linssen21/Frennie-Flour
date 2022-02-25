@@ -17,6 +17,7 @@ module.exports = {
         },
         width: {
           '14px': '0.875rem',
+          'page-width': 'var(--page-width)'
         },
         fontSize: {
           tiny: '0.5625rem'
@@ -24,6 +25,7 @@ module.exports = {
         lineHeight: {
           'search-bar': '1.8',
         },
+      
       },
       fontFamily: {
         sans: ['Josefin Sans', 'sans-serif']

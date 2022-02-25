@@ -18,6 +18,18 @@
   <script src="{{ 'application.js' | asset_url }}" defer></script>
   <script src="{{ 'search-modal.js' | asset_url }}" defer></script>
 
+
+  {% style %}
+
+    :root{
+
+      --page-width: {{ settings.page_width | divided_by: 10 }}rem;
+
+    }
+
+  {% endstyle %}
+
+
 </head>
 <body class="font-Josefin">
 

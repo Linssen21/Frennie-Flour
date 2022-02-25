@@ -89,7 +89,7 @@
         "id": "page_width",
         "min": 1200,
         "max": 1600,
-        "step": 10,
+        "step": 20,
         "default": 1200,
         "unit": "px",
         "label": "Maximum width"

@@ -18,55 +18,55 @@
       {
         "type": "text",
         "id": "social_twitter_link",
-        "label": "twitter",
+        "label": "Twitter",
         "info": "https://frennie-flour.myshopify.com/twitter"
       },
       {
         "type": "text",
         "id": "social_facebook_link",
-        "label": "facebook",
+        "label": "Facebook",
         "info": "https://frennie-flour.myshopify.com/facebook"
       },
       {
         "type": "text",
         "id": "social_pinterest_link",
-        "label": "pinterest",
+        "label": "Pinterest",
         "info": "https://frennie-flour.myshopify.com/pinterest"
       },
       {
         "type": "text",
         "id": "social_instagram_link",
-        "label": "instagram",
+        "label": "Instagram",
         "info": "https://frennie-flour.myshopify.com/instagram"
       },
       {
         "type": "text",
         "id": "social_tiktok_link",
-        "label": "tiktok",
+        "label": "Tiktok",
         "info": "https://frennie-flour.myshopify.com/tiktok"
       },
       {
         "type": "text",
         "id": "social_tumblr_link",
-        "label": "tumblr",
+        "label": "Tumblr",
         "info": "https://frennie-flour.myshopify.com/tumblr"
       },
       {
         "type": "text",
         "id": "social_snapchat_link",
-        "label": "snapchat",
+        "label": "Snapchat",
         "info": "https://frennie-flour.myshopify.com/snapchat"
       },
       {
         "type": "text",
         "id": "social_youtube_link",
-        "label": "youtube",
+        "label": "Youtube",
         "info": "https://frennie-flour.myshopify.com/youtube"
       },
       {
         "type": "text",
         "id": "social_vimeo_link",
-        "label": "vimeo",
+        "label": "Vimeo",
         "info": "https://frennie-flour.myshopify.com/vimeo"
       }
     ]

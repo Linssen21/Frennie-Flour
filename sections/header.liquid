@@ -98,8 +98,8 @@
     <div id="search-modal" class="absolute top-0 left-0 right-0 bottom-0 z-10 flex justify-center items-center bg-white hidden">
         <div class="after:content-[''] after:absolute after:bg-black after:opacity-50 after:top-full after:left-0 after:right-0 after:h-screen"></div>
         <div id="search-modal-content" class="flex items-center justify-center w-full h-full leading-search-bar md:px-24 px-3 md:pr-12">
-           <predictive-search class="flex-auto w-full max-w-xl">
-                <form action="{{ routes.search_url }}" method="get">
+           <predictive-search class="flex-auto w-full max-w-7xl">
+                <form action="{{ routes.search_url }}" method="get" class="relative">
                     <div class="relative w-full flex border-solid border-2 border-gray-700 focus-within:border-primary">
                         <input id="Search" type="search" name="q" placeholder="Search" class="flex-grow text-left p-6 bg-transparent h-11 focus:outline-none pr-14" value="{{ search.terms | escape }}"
                             {%- if settings.predictive_search_enabled -%}
@@ -130,7 +130,7 @@
                     We will use the Section Rendering API to attach the Section
                     {% endcomment %}    
                     {%- if settings.predictive_search_enabled -%}
-                        <div id="predictive-search" tabindex="-1"></div>
+                        <div id="predictive-search" tabindex="-1" class="absolute bg-white w-full"></div>
                     {%- endif -%}
                 </form>
             </predictive-search>

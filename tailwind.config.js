@@ -27,7 +27,9 @@ module.exports = {
         lineHeight: {
           'search-bar': '1.8',
         },
-      
+        maxHeight:{
+          'search-container': '60vh'
+        },
       },
       fontFamily: {
         sans: ['Josefin Sans', 'sans-serif']

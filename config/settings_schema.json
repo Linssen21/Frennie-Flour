@@ -95,5 +95,16 @@
         "label": "Maximum width"
       }
     ]
+  },
+  {
+    "name": "Search",
+    "settings": [
+        {
+          "type": "checkbox",
+          "id": "predictive_search_enabled",
+          "default": true,
+          "label": "Enable Predictive Search"
+      }
+    ]
   }
 ]

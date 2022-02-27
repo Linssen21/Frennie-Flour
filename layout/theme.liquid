@@ -17,18 +17,13 @@
   {{ 'application.css' | asset_url | stylesheet_tag }}
   <script src="{{ 'application.js' | asset_url }}" defer></script>
   <script src="{{ 'search-modal.js' | asset_url }}" defer></script>
-
+  <script src="{{ 'predictive-search.js' | asset_url }}" defer></script>
 
   {% style %}
-
     :root{
-
       --page-width: {{ settings.page_width | divided_by: 16 }}rem;
-
     }
-
   {% endstyle %}
-
 
 </head>
 <body class="font-Josefin">
@@ -38,5 +33,19 @@
   <main role="main">
     {{ content_for_layout }}
   </main>
+
+{% comment %} 
+  Global Access to the routes object
+{% endcomment %}
+  <script>
+    window.routes = {
+      cart_add_url: '{{ routes.cart_add_url }}',
+      cart_change_url: '{{ routes.cart_change_url }}',
+      cart_update_url: '{{ routes.cart_update_url }}',
+      predictive_search_url: '{{ routes.predictive_search_url }}'
+    };
+  </script>
+
+
 </body>
 </html>

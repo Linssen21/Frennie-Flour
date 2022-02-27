@@ -71,7 +71,7 @@
                                 Cart
                             </span>
                             {% if cart != empty %}
-                                <div class="absolute bg-black text-white text-xs w-4 h-4 rounded-full flex justify-center items-center text-tiny top-3 left-3">
+                                <div id="cart-count-bubble" class="absolute bg-black text-white text-xs w-4 h-4 rounded-full flex justify-center items-center text-tiny top-3 left-3">
                                 {% if cart.item_count < 100 %}
                                     <span aria-hidden="true">{{ cart.item_count }}</span>
                                 {% endif %}
@@ -98,14 +98,42 @@
     <div id="search-modal" class="absolute top-0 left-0 right-0 bottom-0 z-10 flex justify-center items-center bg-white hidden">
         <div class="after:content-[''] after:absolute after:bg-black after:opacity-50 after:top-full after:left-0 after:right-0 after:h-screen"></div>
         <div id="search-modal-content" class="flex items-center justify-center w-full h-full leading-search-bar md:px-24 px-3 md:pr-12">
-            <form action="{{ routes.search_url }}" method="get" class="flex-auto w-full max-w-xl">
-                <div class="relative w-full flex border-solid border-2 border-gray-700 focus-within:border-primary">
-                    <input autofocus type="search" name="q" placeholder="Search" class="flex-grow text-left p-6 bg-transparent h-11 focus:outline-none pr-14" >
-                    <button type="submit" class="w-16 flex justify-center items-center cursor-pointer absolute right-0 top-0 p-0 overflow-hidden border-0 h-full hover:text-primary">
-                        {% render 'icon-search' %}
-                    </button>
-                </div>
-            </form>
+           <predictive-search class="flex-auto w-full max-w-xl">
+                <form action="{{ routes.search_url }}" method="get">
+                    <div class="relative w-full flex border-solid border-2 border-gray-700 focus-within:border-primary">
+                        <input id="Search" type="search" name="q" placeholder="Search" class="flex-grow text-left p-6 bg-transparent h-11 focus:outline-none pr-14" value="{{ search.terms | escape }}"
+                            {%- if settings.predictive_search_enabled -%}
+                                role="combobox"
+                                aria-expanded="false"
+                                aria-owns="predictive-search-results-list"
+                                aria-controls="predictive-search-results-list"
+                                aria-haspopup="listbox"
+                                aria-autocomplete="list"
+                                autocorrect="off"
+                                autocomplete="off"
+                                autocapitalize="off"
+                                spellcheck="false"
+                              {%- endif -%}
+                        >
+                        <input type="hidden" name="type" value="product,page" />
+                        <input type="hidden" name="options[unavailable_products]" value="hide" />
+                        <input type="hidden" name="options[prefix]" value="last" />
+                    
+                        <button type="submit" class="w-16 flex justify-center items-center cursor-pointer absolute right-0 top-0 p-0 overflow-hidden border-0 h-full hover:text-primary">
+                            {% render 'icon-search' %}
+                        </button>
+                    </div>
+                    {% comment %} 
+                    
+                    Section Rendering API
+                    https://shopify.dev/api/section-rendering
+                    We will use the Section Rendering API to attach the Section
+                    {% endcomment %}    
+                    {%- if settings.predictive_search_enabled -%}
+                        <div id="predictive-search" tabindex="-1"></div>
+                    {%- endif -%}
+                </form>
+            </predictive-search>
             <button id="close-search-modal" type="button" class="flex justify-center items-center p-0 h-16 w-16 bg-transparent" aria-label="Close">
                 {% render 'icon-close' %}
             </button>

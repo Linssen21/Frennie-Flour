@@ -1,7 +1,7 @@
 const colors = require('tailwindcss/colors')
 
 module.exports = {
-    content: ['./templates/**/*.{html,liquid,js}', './sections/**/*.{html,liquid,js}'],
+    content: ['./templates/**/*.{html,liquid,js}', './sections/**/*.{html,liquid,js}', './layout/**/*.{html,liquid,js}'],
     theme: {
       extend: {
         boxShadow: {
@@ -14,9 +14,11 @@ module.exports = {
         colors: {
           primary: '#ff167d',
           secondary: colors.black,
+          light: '#FFEFF0',
         },
         width: {
           '14px': '0.875rem',
+          'sidebar': 'calc(100vw - 4rem)'
         },
         maxWidth: {
           'page-width': 'var(--page-width)'
@@ -30,10 +32,15 @@ module.exports = {
         maxHeight:{
           'search-container': '60vh'
         },
+        screens:{
+          'max-md': { 'raw': '(max-width: 767px)' },
+
+        }
       },
       fontFamily: {
         sans: ['Josefin Sans', 'sans-serif']
       },
+   
 
     },
     variants: {

@@ -1,5 +1,5 @@
-<header class="bg-white relative shadow-header">
-    <div class="max-w-page-width mx-auto py-2 px-8">
+<header class="bg-pink-50 relative shadow-header">
+    <div class="max-w-page-width mx-auto py-2 md:px-8 px-4">
         <div class="flex items-center justify-between relative">
         
             <div class="flex-1 flex items-center  justify-start">
@@ -15,7 +15,7 @@
                             width="{{ section.settings.logo.width }}"
                             height="{{ section.settings.logo.height }}"  
                             alt="{{ section.settings.logo.alt | default: shop.name | escape }}"
-                            class="max-h-20 object-contain w-auto"
+                            class="md:max-h-20 max-h-16 object-contain w-auto"
                             />
                         {% else %}
                             <span class="text-2xl font-bold">{{ shop.name }}</span>
@@ -32,7 +32,7 @@
                         <li class="hover:text-primary p-4 relative group leading-none">
                             <!-- (link.links) Submenus -->
                             {% if link.links != blank %}
-                            <a class=" relative p-4 uppercase group-hover:text-primary group-hover:after:content-[''] group-hover:after:border-b group-hover:after:border-primary group-hover:after:absolute group-hover:after:bottom-0 group-hover:after:block group-hover:after:border-colo group-hover:after:h-1px group-hover:after:z-10 group-hover:after:w-full" href="{{ link.url }}">{{ link.title | escape }}
+                            <a class=" relative p-4 uppercase group-hover:text-primary group-hover:after:content-[''] group-hover:after:border-b group-hover:after:border-primary group-hover:after:absolute group-hover:after:bottom-2 group-hover:after:block group-hover:after:border-colo group-hover:after:h-1px group-hover:after:z-10 group-hover:after:w-full" href="{{ link.url }}">{{ link.title | escape }}
                             <span class="inline-flex justify-center items-center w-14px"> <!-- render get from snippets folder -->
                             {% render 'icon-dropdown' %}</span>
                             </a>
@@ -51,8 +51,8 @@
                     {% endfor %}
                     {% comment %} Nav Links {% endcomment %}
                     <li class="px-2 py-4 relative flex items-end"> 
-                        <button id="search-toggle" type="button" class="whitespace-nowrap cursor-pointer hover:text-primary w-6">
-                            {% render 'icon-search' %}
+                        <button type="button" class="search-toggle whitespace-nowrap cursor-pointer hover:text-primary w-6">
+                            {% render 'icon-search' size: 6 %}
                         </button>
                     </li>
                     {% if shop.customer_accounts_enabled %}
@@ -88,12 +88,67 @@
            {% comment %} Mobile menu, show/hide based on menu state.{% endcomment %}
             <div id="mobile-menu" class="md:hidden absolute inset-y-0 right-0 flex items-center">
                 <button>
-                    {% render 'icon-menu' %}
+                    <div id="icon-burger-menu">
+                        {% render 'icon-menu' %}
+                    </div>
+                    <div class="hidden" id="icon-menu-close">
+                        {% render 'icon-close' %}
+                    </div>
                 </button>
             </div>
 
         </div>
     </div>
+
+    <header-drawer>
+        <div id="menu-drawer-overlay" class="after:hidden md:after:hidden after:content-[''] after:absolute after:bg-black after:opacity-50 after:top-full after:left-0 after:right-0 after:h-screen z-0"></div>
+        <div id="menu-drawer" class="transition-all ease-in-out duration-300 -translate-x-full invisible md:invisible absolute left-0 bg-white z-3 top-full w-11/12  p-0 border border-gray-300 h-screen grid">
+            {% if section.settings.menu != blank %}
+                <div id="menu-drawer-navigation" class="py-8 text-lg">
+                    <ul class="uppercase text-sm font-normal">
+                        {% for link in section.settings.menu.links %}
+                            <li class="border-b border-black pl-8 pr-6 py-4"><a class="hover:text-primary" href="{{ link.url }}">{{ link.title | escape }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div id="menu-drawer-utility-links" class="bg-slate-50">
+                    <ul>
+                        <li class="px-2 py-4 relative flex items-end "> 
+                        <button type="button" class="search-toggle whitespace-nowrap cursor-pointer hover:text-primary w-full inline-flex text-base">
+                            {% render 'icon-search' size: 5 %}
+                           <span class="ml-3">Search</span> 
+                        </button>
+                    </li>
+                    {% if shop.customer_accounts_enabled %}
+                    <li class="px-2 py-4 relative flex items-end ">
+                        <a class="whitespace-nowrap cursor-pointer hover:text-primary w-full inline-flex text-base" href="{% if customer %} {{ routes.account_url }} {% else %} {{ routes.account_login_url }} {% endif %}">                  
+                            {% render 'icon-user' size: 5 %}
+                            <span class="ml-3">Account</span>
+                        </a>
+                    </li>
+                    {% endif %}
+                    <li class="px-2 py-4 relative flex items-end ">
+                        <a href="{{ routes.cart_url }}" class="whitespace-nowrap cursor-pointer hover:text-primary w-full inline-flex text-base">
+                            {% render 'icon-cart' size: 5%}
+                            <span class="ml-3">Cart</span>
+                            <span id="cart-count-bubble" class="hidden">
+                                Cart
+                            </span>
+                            {% if cart != empty %}
+                                <div id="cart-count-bubble" class="absolute bg-black text-white text-xs w-4 h-4 rounded-full flex justify-center items-center text-tiny top-3 left-3">
+                                {% if cart.item_count < 100 %}
+                                    <span aria-hidden="true">{{ cart.item_count }}</span>
+                                {% endif %}
+                                </div>
+                            {% endif %}
+                        </a>
+                    </li>
+                    </ul>
+                </div>
+            {% endif %}
+        </div>
+    </header-drawer>
+
     {% comment %} Search Form {% endcomment %}
     <div id="search-modal" class="absolute top-0 left-0 right-0 bottom-0 z-10 flex justify-center items-center bg-white hidden">
         <div class="after:content-[''] after:absolute after:bg-black after:opacity-50 after:top-full after:left-0 after:right-0 after:h-screen"></div>

@@ -1,30 +1,76 @@
 {% if predictive_search.performed %}
-    <div id="predictive-search-results" class="p-14 border border-gray-300 max-h-search-container overflow-y-auto">
-        {% if predictive_search.resources.products.size > 0 %}
-            <h3 class="uppercase text-2xl font-semibold mb-5">Products</h3> 
-        {% endif %}
-        <ul id="predictive-search-results-list" role="listbox" class="grid grid-cols-1 lg:grid-cols-4 sm:grid-cols-2 gap-x-5 gap-y-7">
+   <div id="predictive-search-results" class="md:p-10 p-5 border border-gray-300 max-h-search-container overflow-y-auto bg-pink-50">
+      <h3 class="uppercase text-2xl font-semibold mb-5">Products</h3> 
+      {% if predictive_search.resources.products.size > 0 %}
+         
+         <ul role="listbox" class="predictive-search-results-list grid grid-cols-1 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-x-10 gap-y-7">
             {% for product in predictive_search.resources.products %}
-               <li id="predictive-search__list-item" role="option">
-                    <article class="relative" data-price="{{ product.price | money_with_currency }}">
+               <li class="predictive-search__list-item" role="option">
+                     <article class="relative" data-price="{{ product.price | money_with_currency }}">
                         <a id="predictive-search__item" href="{{ product.url }}" tabindex="-1">
-                            {%- if product.featured_media != blank -%}
-                                <img class="w-full"
+                              {%- if product.featured_media != blank -%}
+                                 <img class="md:w-56 md:h-56 w-full h-44 max-w-full object-cover"
                                     loading="lazy"
-                                  src="{{ product.featured_media | image_url: width: 300 }}"
-                                  alt="{{ product.featured_media.alt }}"
-                                  width="300"
-                                  height="{{ 50 | divided_by: product.featured_media.preview_image.aspect_ratio }}"
-                                >
+                                    src="{{ product.featured_media | image_url: width: 300 }}"
+                                    alt="{{ product.featured_media.alt }}"
+                                    width="300"
+                                    height="{{ 50 | divided_by: product.featured_media.preview_image.aspect_ratio }}"
+                                 >
                               {%- endif -%}
-                            <div id="predictive-search__item-content">
-                                <div id="predictive-search__item-heading">{{ product.title }}</div>
-                                <div id="product_loop_price">{{ product.price | money_with_currency }}</div>
-                            </div>
+                              <div id="predictive-search__item-content" class="mt-5">
+                                 <div id="predictive-search__item-heading" class="text-lg">{{ product.title }}</div>
+                                 <div id="product_loop_price" class="text-base" >{{ product.price | money_with_currency }}</div>
+                              </div>
                         </a>
-                    </article>
-                </li>
+                     </article>
+                  </li>
             {% endfor %}
-        </ul>
-    </div>
+         </ul>
+      {% endif %}
+      <div class="grid md:grid-cols-3 grid-cols-1 gap-7 mt-5">
+         <div id="search-result-collections">
+            <h3 class="uppercase text-2xl font-semibold md:my-8 my-5 border-b border-gray-700">Collections</h3>
+            {% if predictive_search.resources.articles.size > 0 %}
+            
+               <ul class="predictive-search-results-list">
+                  {% for article in predictive_search.resources.collection %}
+                     <li class="predictive-search__list-item">
+                        <a class="hover:text-primary" href="{{ collection.url }}"> {{ collection.title }}</a>
+                     </li>
+                  {% endfor %}
+               </ul>
+            {% endif %}
+         </div>
+         <div id="search-result-articles">
+            <h3 class="uppercase text-2xl font-semibold md:my-8 my-5 border-b border-gray-700">Articles</h3>
+            {% if predictive_search.resources.articles.size > 0 %}
+             
+               <ul class="predictive-search-results-list">
+                  {% for article in predictive_search.resources.articles %}
+                     <li class="predictive-search__list-item">
+                     <a class="hover:text-primary" href="{{ article.url }}">{{ article.title }}</a>
+                     </li>
+                  {% endfor %}
+               </ul>
+            {% endif %}
+         </div>
+         <div id="search-result-page">
+            <h3 class="uppercase text-2xl font-semibold md:my-8 my-5 border-b border-gray-700">Pages</h3>
+            {% if predictive_search.resources.pages.size > 0 %}
+             
+               <ul class="predictive-search-results-list">
+                  {% for page in predictive_search.resources.pages %}
+                     <li class="predictive-search__list-item">
+                        <a class="hover:text-primary" href="{{ page.url }}">{{ page.title }}</a>
+                     </li>
+                  {% endfor %}
+               </ul>
+            {% endif %}
+         </div>
+      </div>
+
+      <div class="mt-10 mb-5 text-center"><button class="uppercase px-8 py-4 border border-black hover:bg-primary hover:text-white">Search for "{{ predictive_search.terms }}"</button></div>
+   </div>
+
+ 
 {% endif %}

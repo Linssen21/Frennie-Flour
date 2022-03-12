@@ -30,11 +30,13 @@ class PredictiveSearch extends HTMLElement{
    * 
    * @param {String} searchTerm 
    * @description Fetch Data using the Section AJAX Rendering api (section_id=predictive-search)
+   * @link  https://shopify.dev/themes/navigation-search/search/predictive-search
+   * @link https://shopify.dev/api/section-rendering
    */
   async getSearchResults(searchTerm){
 
     try {
-        const response = await fetch(`${routes.predictive_search_url}?q=${searchTerm}&resources[type]=product&resources[limit]=4&section_id=predictive-search`);
+        const response = await fetch(`${routes.predictive_search_url}?q=${searchTerm}&resources[type]=product,collection,article,page&resources[limit]=4&section_id=predictive-search`);
 
         if (!response.ok) {
             const responseError = new Error(response.status);

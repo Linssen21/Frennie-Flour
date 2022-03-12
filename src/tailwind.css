@@ -22,5 +22,23 @@
       padding: 0 5rem;
     }
   }
+
+  .body-scroll[menu-open]{
+    @apply md:overflow-auto;
+  }
+
+  .show{
+    @apply visible translate-x-0
+    /* visibility: visible;
+    transform: translate(0); */
+    
+  }
   
+  div#mobile-menu[open] #icon-burger-menu {
+   @apply hidden
+  }
+
+div#mobile-menu[open] #icon-menu-close {
+    @apply block
+  }
  
